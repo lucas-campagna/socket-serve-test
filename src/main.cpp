@@ -1,4 +1,5 @@
 #include "configs.h"
+#include "utils.h"
 
 extern void str_echo(int sockfd);
 
@@ -26,7 +27,7 @@ int main(int argc, char **argv){
 
         if( (childpid = fork()) == 0){ // child process
             close(listenfd); // close listening socket
-            // str_echo(connfd); // process the request
+            str_echo(connfd); // process the request
             exit(0);
         }
         close(connfd); // parent closes conected socket
