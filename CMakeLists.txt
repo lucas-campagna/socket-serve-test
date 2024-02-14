@@ -5,6 +5,8 @@ project(TCPEchoServer)
 set(CMAKE_CXX_STANDARD 11)
 
 # Add all .cpp files in the current directory to the executable
-file(GLOB SOURCES "*.cpp")
+file(GLOB SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
 
-add_executable(server ${SOURCES})
+add_library(socket ${SOURCES})
+
+target_include_directories(socket PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)

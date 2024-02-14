@@ -1,6 +1,10 @@
 #include "utils.h"
 #include <cerrno>
 
+#define ERROR(msg) \
+    perror(msg); \
+    exit(EXIT_FAILURE);
+
 ssize_t readn(int fd, void *vptr, size_t n){
     size_t nleft;
     ssize_t nread;
